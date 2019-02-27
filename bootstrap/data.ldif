@@ -16,8 +16,7 @@ givenName: Amy
 mail: amy@ldapmock.local
 ou: Intern
 uid: amy
-userPassword:: e3NzaGF9M3UzcUdCSmFMc2tiUEg0OVJrYlFtUk9HTktFb1lOUXZkU2lOZmc9P
- Q==
+userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 dn: cn=Bender Bending Rodríguez,ou=people,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
@@ -33,8 +32,7 @@ givenName: Bender
 mail: bender@ldapmock.local
 ou: Delivering Crew
 uid: bender
-userPassword:: e3NzaGF9amxCTnNmVVdKK0tIWHprRFVuYTJSSTBjK09PNmlGdzAxZHd3K3c9P
- Q==
+userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 dn: cn=Philip J. Fry,ou=people,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
@@ -50,8 +48,7 @@ givenName: Philip
 mail: fry@ldapmock.local
 ou: Delivering Crew
 uid: fry
-userPassword:: e3NzaGF9d0wvVG0wSHNaeU90K29jbXlrU290UkpURnczd0ZKOWRlaEU4eFE9P
- Q==
+userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 dn: cn=Hermes Conrad,ou=people,dc=ldapmock,dc=local
 objectClass: top
@@ -67,8 +64,7 @@ givenName: Hermes
 mail: hermes@ldapmock.local
 ou: Office Management
 uid: hermes
-userPassword:: e3NzaGF9M3UzcUdCSmFMc2tiUEg0OVJrYlFtUk9HTktFb1lOUXZkU2lOZmc9P
- Q==
+userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 dn: cn=Turanga Leela,ou=people,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
@@ -84,8 +80,7 @@ givenName: Leela
 mail: leela@ldapmock.local
 ou: Delivering Crew
 uid: leela
-userPassword:: e3NzaGF9eCtEOFJJTDFQNUJ3OFo1N28ra2tFeDlLNm14d0JSY0tSNmo1R2c9P
- Q==
+userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 dn: cn=Hubert J. Farnsworth,ou=people,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
@@ -104,8 +99,7 @@ mail: hubert@ldapmock.local
 ou: Office Management
 title: Professor
 uid: professor
-userPassword:: e3NzaGF9azRDRS9ta3Frb3NFampzVkhJWEhGMTFaU0h6ZVExUzdhdnQveWc9P
- Q==
+userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 dn: cn=John A. Zoidberg,ou=people,dc=ldapmock,dc=local
 objectClass: top
@@ -122,8 +116,7 @@ mail: zoidberg@ldapmock.local
 ou: Staff
 title: Ph.D.
 uid: zoidberg
-userPassword:: e3NzaGF9UEgvVjZ3S3Mxc3lRems0RGFCd0hXdlJQNmhlZ2xQWmtCR2hWdUE9P
- Q==
+userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 dn: cn=admin_staff,ou=people,dc=ldapmock,dc=local
 objectclass: Group

@@ -61,7 +61,7 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Office Management |
 | title            | Professor |
 | uid              | professor |
-| userPassword     | professor |
+| userPassword     | password |
 
 
 ### cn=Philip J. Fry,ou=people,dc=ldapmock,dc=local
@@ -79,7 +79,7 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | mail             | fry@ldapmock.local |
 | ou               | Delivering Crew |
 | uid              | fry |
-| userPassword     | fry |
+| userPassword     | password |
 
 
 ### cn=John A. Zoidberg,ou=people,dc=ldapmock,dc=local
@@ -98,7 +98,7 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Staff |
 | title            | Ph. D. |
 | uid              | zoidberg |
-| userPassword     | zoidberg |
+| userPassword     | password |
 
 ### cn=Hermes Conrad,ou=people,dc=ldapmock,dc=local
 
@@ -114,7 +114,7 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | mail             | hermes@ldapmock.local |
 | ou               | Office Management |
 | uid              | hermes |
-| userPassword     | hermes |
+| userPassword     | password |
 
 ### cn=Turanga Leela,ou=people,dc=ldapmock,dc=local
 
@@ -131,7 +131,7 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | mail             | leela@ldapmock.local |
 | ou               | Delivering Crew |
 | uid              | leela |
-| userPassword     | leela |
+| userPassword     | password |
 
 ### cn=Bender Bending Rodríguez,ou=people,dc=ldapmock,dc=local
 
@@ -147,7 +147,7 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | mail             | bender@ldapmock.local |
 | ou               | Delivering Crew |
 | uid              | bender |
-| userPassword     | bender |
+| userPassword     | password |
 
 ### cn=admin_staff,ou=people,dc=ldapmock,dc=local
 
