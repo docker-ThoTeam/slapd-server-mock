@@ -17,3 +17,19 @@ olcObjectClasses: ( 1.2.840.113556.1.5.8 NAME 'Group'
         SUP top STRUCTURAL
         MUST ( groupType $ cn)
         MAY ( member ) )
+
+dn: cn=config
+changetype: modify
+replace: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/ldap/ssl/ldap.crt
+-
+replace: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/ldap/ssl/ldap.key
+-
+replace: olcTLSVerifyClient
+olcTLSVerifyClient: never
+
+dn: cn=config
+changetype: modify
+replace: olcLogLevel
+olcLogLevel: stats

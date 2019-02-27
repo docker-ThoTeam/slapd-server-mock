@@ -1,12 +1,11 @@
 #!/bin/sh
 set -eu
 
-readonly DATA_DIR="/bootstrap/data"
-readonly CONFIG_DIR="/bootstrap/config"
+readonly BOOTSTRAP_DIR="/bootstrap"
 
-readonly LDAP_DOMAIN=planetexpress.com
-readonly LDAP_ORGANISATION="Planet Express, Inc."
-readonly LDAP_BINDDN="cn=admin,dc=planetexpress,dc=com"
+readonly LDAP_DOMAIN=ldapmock.local
+readonly LDAP_ORGANISATION="LDAP Mock, Inc."
+readonly LDAP_BINDDN="cn=admin,dc=ldapmock,dc=local"
 readonly LDAP_SECRET=GoodNewsEveryone
 
 readonly LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
@@ -50,32 +49,19 @@ make_snakeoil_certificate() {
 }
 
 
-configure_tls() {
-    echo "Configure TLS..."
-    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/tls.ldif -Q
-}
-
-
-configure_logging() {
-    echo "Configure logging..."
-    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/logging.ldif -Q
-}
-
-configure_msad_features(){
-  echo "Configure MS-AD Extensions"
-  ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/msad.ldif -Q
+configure_features() {
+    echo "Configure MSAD extension, TLS and loging"
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${BOOTSTRAP_DIR}/config.ldif -Q
 }
 
 load_initial_data() {
     echo "Load data..."
-    local data=$(find ${DATA_DIR} -maxdepth 1 -name \*_\*.ldif -type f | sort)
-    for ldif in ${data}; do
-        echo "Processing file ${ldif}..."
-        ldapadd -x -H ldapi:/// \
-          -D ${LDAP_BINDDN} \
-          -w ${LDAP_SECRET} \
-          -f ${ldif}
-    done
+    local data=${BOOTSTRAP_DIR}/data.ldif
+    echo "Processing file ${data}..."
+    ldapadd -x -H ldapi:/// \
+      -D ${LDAP_BINDDN} \
+      -w ${LDAP_SECRET} \
+      -f ${data}
 }
 
 
@@ -86,9 +72,7 @@ make_snakeoil_certificate
 chown -R openldap:openldap /etc/ldap
 slapd -h "ldapi:///" -u openldap -g openldap
 
-configure_msad_features
-configure_tls
-configure_logging
+configure_features
 load_initial_data
 
 kill -INT `cat /run/slapd/slapd.pid`

@@ -1,0 +1,143 @@
+dn: ou=people,dc=ldapmock,dc=local
+objectClass: top
+objectClass: organizationalUnit
+description: Mock LDAP crew
+ou: people
+
+dn: cn=Amy Wong+sn=Kroker,ou=people,dc=ldapmock,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Amy Wong
+sn: Kroker
+description: Human
+givenName: Amy
+mail: amy@ldapmock.local
+ou: Intern
+uid: amy
+userPassword:: e3NzaGF9M3UzcUdCSmFMc2tiUEg0OVJrYlFtUk9HTktFb1lOUXZkU2lOZmc9P
+ Q==
+
+dn: cn=Bender Bending Rodríguez,ou=people,dc=ldapmock,dc=local
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn:: QmVuZGVyIEJlbmRpbmcgUm9kcsOtZ3Vleg==
+sn:: Um9kcsOtZ3Vleg==
+description: Robot
+displayName: Bender
+employeeType: Ship's Robot
+givenName: Bender
+mail: bender@ldapmock.local
+ou: Delivering Crew
+uid: bender
+userPassword:: e3NzaGF9amxCTnNmVVdKK0tIWHprRFVuYTJSSTBjK09PNmlGdzAxZHd3K3c9P
+ Q==
+
+dn: cn=Philip J. Fry,ou=people,dc=ldapmock,dc=local
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Philip J. Fry
+sn: Fry
+description: Human
+displayName: Fry
+employeeType: Delivery boy
+givenName: Philip
+mail: fry@ldapmock.local
+ou: Delivering Crew
+uid: fry
+userPassword:: e3NzaGF9d0wvVG0wSHNaeU90K29jbXlrU290UkpURnczd0ZKOWRlaEU4eFE9P
+ Q==
+
+dn: cn=Hermes Conrad,ou=people,dc=ldapmock,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: Hermes Conrad
+sn: Conrad
+description: Human
+employeeType: Bureaucrat
+employeeType: Accountant
+givenName: Hermes
+mail: hermes@ldapmock.local
+ou: Office Management
+uid: hermes
+userPassword:: e3NzaGF9M3UzcUdCSmFMc2tiUEg0OVJrYlFtUk9HTktFb1lOUXZkU2lOZmc9P
+ Q==
+
+dn: cn=Turanga Leela,ou=people,dc=ldapmock,dc=local
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Turanga Leela
+sn: Turanga
+description: Mutant
+employeeType: Captain
+employeeType: Pilot
+givenName: Leela
+mail: leela@ldapmock.local
+ou: Delivering Crew
+uid: leela
+userPassword:: e3NzaGF9eCtEOFJJTDFQNUJ3OFo1N28ra2tFeDlLNm14d0JSY0tSNmo1R2c9P
+ Q==
+
+dn: cn=Hubert J. Farnsworth,ou=people,dc=ldapmock,dc=local
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Hubert J. Farnsworth
+sn: Farnsworth
+description: Human
+displayName: Professor Farnsworth
+employeeType: Owner
+employeeType: Founder
+givenName: Hubert
+mail: professor@ldapmock.local
+mail: hubert@ldapmock.local
+ou: Office Management
+title: Professor
+uid: professor
+userPassword:: e3NzaGF9azRDRS9ta3Frb3NFampzVkhJWEhGMTFaU0h6ZVExUzdhdnQveWc9P
+ Q==
+
+dn: cn=John A. Zoidberg,ou=people,dc=ldapmock,dc=local
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: John A. Zoidberg
+sn: Zoidberg
+description: Decapodian
+displayName: Zoidberg
+employeeType: Doctor
+givenName: John
+mail: zoidberg@ldapmock.local
+ou: Staff
+title: Ph.D.
+uid: zoidberg
+userPassword:: e3NzaGF9UEgvVjZ3S3Mxc3lRems0RGFCd0hXdlJQNmhlZ2xQWmtCR2hWdUE9P
+ Q==
+
+dn: cn=admin_staff,ou=people,dc=ldapmock,dc=local
+objectclass: Group
+objectclass: top
+groupType: 2147483650
+cn: admin_staff
+member: cn=Hubert J. Farnsworth,ou=people,dc=ldapmock,dc=local
+member: cn=Hermes Conrad,ou=people,dc=ldapmock,dc=local
+
+dn: cn=ship_crew,ou=people,dc=ldapmock,dc=local
+objectclass: Group
+objectclass: top
+groupType: 2147483650
+cn: ship_crew
+member: cn=Philip J. Fry,ou=people,dc=ldapmock,dc=local
+member: cn=Turanga Leela,ou=people,dc=ldapmock,dc=local
+member: cn=Bender Bending Rodríguez,ou=people,dc=ldapmock,dc=local
