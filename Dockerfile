@@ -1,5 +1,5 @@
 FROM debian:stretch-slim
-MAINTAINER Rafael Römhild <rafael@roemhild.de>
+LABEL maintainter="Olivier Clavel <olivier.clavel@thoteam.com>"
 
 # Install slapd and requirements
 RUN apt-get update \
