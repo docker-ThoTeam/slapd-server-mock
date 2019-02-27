@@ -33,14 +33,6 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 * 389
 * 636
 
-## Exposed volumes
-
-* /etc/ldap/slapd.d
-* /etc/ldap/ssl
-* /var/lib/ldap
-* /run/slapd
-
-
 ## LDAP structure
 
 ### dc=planetexpress,dc=com

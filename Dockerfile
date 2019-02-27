@@ -23,8 +23,6 @@ ADD ./bootstrap /bootstrap
 # Initialize LDAP with data
 RUN /bin/bash /bootstrap/slapd-init.sh
 
-VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
-
 EXPOSE 389 636
 
 CMD ["/bin/bash", "/run.sh"]
