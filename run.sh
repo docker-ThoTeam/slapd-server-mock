@@ -16,8 +16,11 @@ declare -rx LDAP_BINDDN="cn=admin,${LDAP_BASEDN}"
 declare -rx LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
 declare -rx LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
 
-echo "Configuring slapd mock instance"
-/bin/bash /slapd-init.sh
+if ! [ -f /etc/ldap/slapd-bootstraped ]; then
+    echo "Configuring slapd mock instance"
+    /bin/bash /slapd-init.sh
+    touch /etc/ldap/slapd-bootstraped
+fi
 
 echo "starting slapd on port 389 and 636..."
 chown -R openldap:openldap /etc/ldap
