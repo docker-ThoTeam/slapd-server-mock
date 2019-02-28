@@ -1,4 +1,4 @@
-# OpenLDAP docker image with mock data (configurable) for testing
+# OpenLDAP docker image with configurable mock data for testing
 
 <!--![Docker Build Status](https://img.shields.io/docker/build/thoteam/slapd-server-mock.svg) ![Docker Stars](https://img.shields.io/docker/stars/thoteam/slapd-server-mock.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/thoteam/slapd-server-mock.svg)-->
 
