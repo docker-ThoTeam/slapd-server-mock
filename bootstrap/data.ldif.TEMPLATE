@@ -91,19 +91,19 @@ description: Mock LDAP groups
 ou: groups
 
 # Admins group
-dn: cn=admin,ou=groups,${LDAP_BASEDN}
+dn: cn=admins,ou=groups,${LDAP_BASEDN}
 objectclass: posixGroup
 objectclass: top
-cn: admin
+cn: admins
 gidNumber: 9998
 memberUID: adminuser1
 memberUID: adminuser2
 
 # developer's group
-dn: cn=developer,ou=groups,${LDAP_BASEDN}
+dn: cn=developers,ou=groups,${LDAP_BASEDN}
 objectclass: posixGroup
 objectclass: top
-cn: developer
+cn: developers
 gidNumber: 9999
 memberUID: developer1
 memberUID: developer2
