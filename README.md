@@ -8,7 +8,7 @@ By default, the server is initialized with the example domain `ldapmock.local` w
 
 The starting point is based on the work from @rroemhild [docker-test-ldap](https://github.com/rroemhild/docker-test-openldap)
 
-**As the title suggest, this is for testing only and you should not try to use this any kind of production.** Slapd configuration
+**As the title suggests, this is for testing only and you should not try to use this on any kind of production.** Slapd configuration
 is minimal and the container does not store any data in persistent volumes. The mock data is bootstrapped each time the container
 is created and lost everytime you remove it.
 
