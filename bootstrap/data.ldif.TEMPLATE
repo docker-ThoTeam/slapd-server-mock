@@ -94,7 +94,7 @@ ou: groups
 dn: cn=admin,ou=groups,${LDAP_BASEDN}
 objectclass: posixGroup
 objectclass: top
-cn: nx-admin
+cn: admin
 gidNumber: 9998
 memberUID: adminuser1
 memberUID: adminuser2
