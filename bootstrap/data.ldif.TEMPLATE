@@ -31,56 +31,56 @@ mail: adminuser2@ldapmock.local
 uid: adminuser2
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-# developper1
-dn: uid=developper1,ou=people,${LDAP_BASEDN}
+# developer1
+dn: uid=developer1,ou=people,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: Developper One
+cn: developer One
 sn: One
-givenName: Developper
-mail: developper.one@ldapmock.local
-uid: developper1
+givenName: developer
+mail: developer.one@ldapmock.local
+uid: developer1
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-# developper2
-dn: uid=developper2,ou=people,${LDAP_BASEDN}
+# developer2
+dn: uid=developer2,ou=people,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: Developper Two
+cn: developer Two
 sn: Two
-givenName: Developper
-mail: developper.two@ldapmock.local
-uid: developper2
+givenName: developer
+mail: developer.two@ldapmock.local
+uid: developer2
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-# developper3
-dn: uid=developper3,ou=people,${LDAP_BASEDN}
+# developer3
+dn: uid=developer3,ou=people,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: Developper Three
+cn: developer Three
 sn: Three
-givenName: Developper
-mail: developper.three@ldapmock.local
-uid: developper3
+givenName: developer
+mail: developer.three@ldapmock.local
+uid: developer3
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-# developper4
-dn: uid=developper4,ou=people,${LDAP_BASEDN}
+# developer4
+dn: uid=developer4,ou=people,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: Developper Four
+cn: developer Four
 sn: Four
-givenName: Developper
-mail: developper.four@ldapmock.local
-uid: developper4
+givenName: developer
+mail: developer.four@ldapmock.local
+uid: developer4
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 # groups organistational unit
@@ -99,13 +99,13 @@ gidNumber: 9998
 memberUID: adminuser1
 memberUID: adminuser2
 
-# Developper's group
-dn: cn=developper,ou=groups,${LDAP_BASEDN}
+# developer's group
+dn: cn=developer,ou=groups,${LDAP_BASEDN}
 objectclass: posixGroup
 objectclass: top
-cn: developper
+cn: developer
 gidNumber: 9999
-memberUID: developper1
-memberUID: developper2
-memberUID: developper3
-memberUID: developper4
+memberUID: developer1
+memberUID: developer2
+memberUID: developer3
+memberUID: developer4
