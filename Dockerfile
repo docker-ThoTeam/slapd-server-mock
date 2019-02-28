@@ -12,16 +12,11 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /etc/ldap/ssl /bootstrap
 
-ENV LDAP_DEBUG_LEVEL=256
-
-# ADD run script
-COPY ./run.sh /run.sh
+# ADD sh scripts
+COPY *.sh /
 
 # ADD bootstrap files
-ADD ./bootstrap /bootstrap
-
-# Initialize LDAP with data
-RUN /bin/bash /bootstrap/slapd-init.sh
+COPY bootstrap /bootstrap
 
 EXPOSE 389 636
 

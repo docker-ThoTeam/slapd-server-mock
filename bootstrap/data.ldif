@@ -1,136 +1,111 @@
+# People Organisation Unit
 dn: ou=people,dc=ldapmock,dc=local
 objectClass: top
 objectClass: organizationalUnit
 description: Mock LDAP crew
 ou: people
 
-dn: cn=Amy Wong+sn=Kroker,ou=people,dc=ldapmock,dc=local
+# adminuser1
+dn: uid=adminuser1,ou=people,dc=ldapmock,dc=local
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
-cn: Amy Wong
-sn: Kroker
-description: Human
-givenName: Amy
-mail: amy@ldapmock.local
-ou: Intern
-uid: amy
+cn: Admin User1
+sn: User1
+givenName: Admin
+mail: admin.user1@ldapmock.local
+uid: adminuser1
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-dn: cn=Bender Bending Rodríguez,ou=people,dc=ldapmock,dc=local
+# adminuser2
+dn: uid=adminuser2,ou=people,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn:: QmVuZGVyIEJlbmRpbmcgUm9kcsOtZ3Vleg==
-sn:: Um9kcsOtZ3Vleg==
-description: Robot
-displayName: Bender
-employeeType: Ship's Robot
-givenName: Bender
-mail: bender@ldapmock.local
-ou: Delivering Crew
-uid: bender
+cn: Admin User2
+sn: User1
+givenName: Admin
+mail: adminuser2@ldapmock.local
+uid: adminuser2
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-dn: cn=Philip J. Fry,ou=people,dc=ldapmock,dc=local
+# developper1
+dn: uid=developper1,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: Philip J. Fry
-sn: Fry
-description: Human
-displayName: Fry
-employeeType: Delivery boy
-givenName: Philip
-mail: fry@ldapmock.local
-ou: Delivering Crew
-uid: fry
+cn: Developper One
+sn: One
+givenName: Developper
+mail: developper.one@ldapmock.local
+uid: developper1
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-dn: cn=Hermes Conrad,ou=people,dc=ldapmock,dc=local
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-objectClass: inetOrgPerson
-cn: Hermes Conrad
-sn: Conrad
-description: Human
-employeeType: Bureaucrat
-employeeType: Accountant
-givenName: Hermes
-mail: hermes@ldapmock.local
-ou: Office Management
-uid: hermes
-userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
-
-dn: cn=Turanga Leela,ou=people,dc=ldapmock,dc=local
+# developper2
+dn: uid=developper2,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: Turanga Leela
-sn: Turanga
-description: Mutant
-employeeType: Captain
-employeeType: Pilot
-givenName: Leela
-mail: leela@ldapmock.local
-ou: Delivering Crew
-uid: leela
+cn: Developper Two
+sn: Two
+givenName: Developper
+mail: developper.two@ldapmock.local
+uid: developper2
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-dn: cn=Hubert J. Farnsworth,ou=people,dc=ldapmock,dc=local
+# developper3
+dn: uid=developper3,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
-cn: Hubert J. Farnsworth
-sn: Farnsworth
-description: Human
-displayName: Professor Farnsworth
-employeeType: Owner
-employeeType: Founder
-givenName: Hubert
-mail: professor@ldapmock.local
-mail: hubert@ldapmock.local
-ou: Office Management
-title: Professor
-uid: professor
+cn: Developper Three
+sn: Three
+givenName: Developper
+mail: developper.three@ldapmock.local
+uid: developper3
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-dn: cn=John A. Zoidberg,ou=people,dc=ldapmock,dc=local
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
+# developper4
+dn: uid=developper4,dc=ldapmock,dc=local
 objectClass: inetOrgPerson
-cn: John A. Zoidberg
-sn: Zoidberg
-description: Decapodian
-displayName: Zoidberg
-employeeType: Doctor
-givenName: John
-mail: zoidberg@ldapmock.local
-ou: Staff
-title: Ph.D.
-uid: zoidberg
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Developper Four
+sn: Four
+givenName: Developper
+mail: developper.four@ldapmock.local
+uid: developper4
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-dn: cn=admin_staff,ou=people,dc=ldapmock,dc=local
-objectclass: Group
+# groups organistation unit
+dn: ou=groups,dc=ldapmock,dc=local
+objectClass: top
+objectClass: organizationalUnit
+description: Mock LDAP groups
+ou: groups
+
+# Admins group
+dn: cn=admin,ou=groups,dc=ldapmock,dc=local
+objectclass: posixGroup
 objectclass: top
-groupType: 2147483650
-cn: admin_staff
-member: cn=Hubert J. Farnsworth,ou=people,dc=ldapmock,dc=local
-member: cn=Hermes Conrad,ou=people,dc=ldapmock,dc=local
+cn: nx-admin
+gidNumber: 9998
+memberUID: adminuser1
+memberUID: adminuser2
 
-dn: cn=ship_crew,ou=people,dc=ldapmock,dc=local
-objectclass: Group
+# Developper's group
+dn: cn=developper,ou=groups,dc=ldapmock,dc=local
+objectclass: posixGroup
 objectclass: top
-groupType: 2147483650
-cn: ship_crew
-member: cn=Philip J. Fry,ou=people,dc=ldapmock,dc=local
-member: cn=Turanga Leela,ou=people,dc=ldapmock,dc=local
-member: cn=Bender Bending Rodríguez,ou=people,dc=ldapmock,dc=local
+cn: developper
+gidNumber: 9999
+memberUID: developper1
+memberUID: developper2
+memberUID: developper3
+memberUID: developper4

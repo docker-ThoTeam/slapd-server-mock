@@ -1,17 +1,6 @@
 #!/bin/sh
 set -eu
 
-readonly BOOTSTRAP_DIR="/bootstrap"
-
-readonly LDAP_DOMAIN=ldapmock.local
-readonly LDAP_ORGANISATION="LDAP Mock, Inc."
-readonly LDAP_BINDDN="cn=admin,dc=ldapmock,dc=local"
-readonly LDAP_SECRET=GoodNewsEveryone
-
-readonly LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
-readonly LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
-
-
 reconfigure_slapd() {
     echo "Reconfigure slapd..."
     cat <<EOL | debconf-set-selections
@@ -50,7 +39,7 @@ make_snakeoil_certificate() {
 
 
 configure_features() {
-    echo "Configure MSAD extension, TLS and loging"
+    echo "Configure custom attributes/extension/conf (MSAD extension, TLS, loging...)"
     ldapmodify -Y EXTERNAL -H ldapi:/// -f ${BOOTSTRAP_DIR}/config.ldif -Q
 }
 
