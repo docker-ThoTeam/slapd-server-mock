@@ -9,6 +9,7 @@ RUN apt-get update \
             ldap-utils \
             openssl \
             ca-certificates \
+            gettext-base \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /etc/ldap/ssl /bootstrap
 

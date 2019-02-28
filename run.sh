@@ -2,17 +2,19 @@
 set -e
 
 # Get variable or set defaults
-readonly BOOTSTRAP_DIR=${BOOTSTRAP_DIR:-/bootstrap}
-readonly LDAP_SECRET=${LDAP_SECRET:-adminpass}
-readonly LDAP_DOMAIN=${LDAP_DOMAIN:-ldapmock.local}
-readonly LDAP_ORGANISATION=${LDAP_ORGANISATION:-LDAP Mock, Inc.}
-readonly LDAP_DEBUG_LEVEL=${LDAP_DEBUG_LEVEL:-256}
-readonly LDAP_BINDDN=${LDAP_BINDDN:-cn=admin,dc=ldapmock,dc=local}
-readonly LDAP_DEBUG_LEVEL=${LDAP_DEBUG_LEVEL:-256}
+declare -rx BOOTSTRAP_DIR=${BOOTSTRAP_DIR:-/bootstrap}
+declare -rx LDAP_SECRET=${LDAP_SECRET:-adminpass}
+declare -rx LDAP_DOMAIN=${LDAP_DOMAIN:-ldapmock.local}
+declare -rx LDAP_ORGANISATION=${LDAP_ORGANISATION:-LDAP Mock, Inc.}
+declare -rx LDAP_DEBUG_LEVEL=${LDAP_DEBUG_LEVEL:-256}
+
+# These are calculated from previous values
+declare -rx LDAP_BASEDN="dc=${LDAP_DOMAIN//./,dc=}"
+declare -rx LDAP_BINDDN="cn=admin,${LDAP_BASEDN}"
 
 # These are not supposed to be customized for now
-readonly LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
-readonly LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
+declare -rx LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
+declare -rx LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
 
 echo "Configuring slapd mock instance"
 /bin/bash /slapd-init.sh

@@ -40,17 +40,19 @@ make_snakeoil_certificate() {
 
 configure_features() {
     echo "Configure custom attributes/extension/conf (MSAD extension, TLS, loging...)"
-    ldapmodify -Y EXTERNAL -H ldapi:/// -f ${BOOTSTRAP_DIR}/config.ldif -Q
+    # Write config ldif by substituting env vars in template
+    cat ${BOOTSTRAP_DIR}/config.ldif.TEMPLATE | envsubst > /tmp/config.ldif
+    ldapmodify -Y EXTERNAL -H ldapi:/// -f /tmp/config.ldif -Q
 }
 
 load_initial_data() {
     echo "Load data..."
-    local data=${BOOTSTRAP_DIR}/data.ldif
-    echo "Processing file ${data}..."
+    # Write data ldif by substituting env vars in template
+    cat ${BOOTSTRAP_DIR}/data.ldif.TEMPLATE | envsubst > /tmp/data.ldif
     ldapadd -x -H ldapi:/// \
       -D ${LDAP_BINDDN} \
       -w ${LDAP_SECRET} \
-      -f ${data}
+      -f /tmp/data.ldif
 }
 
 

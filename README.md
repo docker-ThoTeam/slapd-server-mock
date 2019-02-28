@@ -48,28 +48,36 @@ You can set the following environment variables in your container
 
 | variable          | default value                 | Usage                                                                               |
 |-------------------|-------------------------------|-------------------------------------------------------------------------------------|
-| LDAP_BINDDN       | cn=admin,dc=ldapmock,dc=local | Binddn for slapd admin. You must change it according to your changes in custom data |
 | LDAP_SECRET       | adminpass                     | Password for slapdadmin                                                             |
 | LDAP_DOMAIN       | ldapmock.local                | Used as the configured domain for slapd and to create the snakeoil ssl cert         |
 | LDAP_ORGANISATION | LDAP Mock, Inc.               | Used as the configured organisation for slapd                                       |
 | LDAP_DEBUG_LEVEL  | 256                           | Slapd debug level (see man slapd)                                                   |
 | BOOTSTRAP_DIR     | /bootstrap                    | Directory holding boostrap files where `config.ldif` and `data.ldif` reside         |
 
+Other variables are calculated from the above (will be overwritten if set)
+| variable           | default value                 q| usage                                     | calulation               |
+|--------------------|-------------------------------|-------------------------------------------|--------------------------|
+| LDAP_BASEDN        | dc=ldapmock,dc=local          | dynamic basedn replacement (templates...) | Infered from LDAP_DOMAIN |
+| LDAP_BINDDN        | cn=admin,dc=ldapmock,dc=local | admin binddn for slapadmin                | Infered from LDAP_BASEDN |
+
 
 #### Bootstrap config and data.
 
 The [`run.sh`](run.sh) docker container command will launch [`slapd-init.sh`](slapd-init.sh)
 
-[`slapd-init.sh`](slapd-init.sh) is expecting 2 ldif files in `$BOOTSTRAP_DIR`:
-* [`config.ldif`](bootstrap/config.ldif) contains instruction to adapt slapd config and schema
-* [`data.ldif`](bootstrap/data.ldif) contains the actual entries you want to find in your server (i.e. users and groups)
+[`slapd-init.sh`](slapd-init.sh) is expecting 2 ldif template files in `$BOOTSTRAP_DIR`:
+* [`config.ldif.TEMPLATE`](bootstrap/config.ldif.TEMPLATE) contains instruction to adapt slapd config and schema
+* [`data.ldif.TEMPLATE`](bootstrap/data.ldif.TEMPLATE) contains the actual entries you want to find in your server (i.e. users and groups)
+
+Those file can actually contain bash variable expressions which will get replaced by their env vars values
+(with envsubst command from gettext package). The default template for data allow to configure the LDAP_BASEDN for all entries depending on the chosen domain name.
 
 To override these files, simply bind mount your custom files from your local filesystem to the container. If needed
 you can change the default `/bootstrap` directory location on the container by setting `$BOOTSTRAP_DIR`
 
 ```bash
 # override data only
-docker run -d --name my_slapd_mock -v /path/to/my/data.ldif:/bootstrap/data.ldif thoteam/slapd-server-mock
+docker run -d --name my_slapd_mock -v /path/to/my/data.ldif:/bootstrap/data.ldif.TEMPLATE thoteam/slapd-server-mock
 
 # override both data and config
 docker run -d --name my_slapd_mock -v /path/to/my/bootstrap_dir:/bootstrap thoteam/slapd-server-mock
@@ -86,7 +94,7 @@ docker run -d --name my_slapd_mock -v /path/to/my/bootstrap_dir:/customdir -e BO
 
 ## default LDAP structure
 
-See the ldap objects definitions in [`bootstrap/data.ldif`](bootstrap/data.ldif) for details.
+See the ldap objects definitions in [`bootstrap/data.ldif`](bootstrap/data.ldif.TEMPLATE) for details.
 All users have the same password: `password`
 
 ```

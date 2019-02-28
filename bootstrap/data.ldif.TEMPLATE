@@ -1,12 +1,12 @@
-# People Organisation Unit
-dn: ou=people,dc=ldapmock,dc=local
+# People Organisational Unit
+dn: ou=people,${LDAP_BASEDN}
 objectClass: top
 objectClass: organizationalUnit
 description: Mock LDAP crew
 ou: people
 
 # adminuser1
-dn: uid=adminuser1,ou=people,dc=ldapmock,dc=local
+dn: uid=adminuser1,ou=people,${LDAP_BASEDN}
 objectClass: top
 objectClass: person
 objectClass: organizationalPerson
@@ -19,7 +19,7 @@ uid: adminuser1
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 # adminuser2
-dn: uid=adminuser2,ou=people,dc=ldapmock,dc=local
+dn: uid=adminuser2,ou=people,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
@@ -32,7 +32,7 @@ uid: adminuser2
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 # developper1
-dn: uid=developper1,dc=ldapmock,dc=local
+dn: uid=developper1,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
@@ -45,7 +45,7 @@ uid: developper1
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 # developper2
-dn: uid=developper2,dc=ldapmock,dc=local
+dn: uid=developper2,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
@@ -58,7 +58,7 @@ uid: developper2
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 # developper3
-dn: uid=developper3,dc=ldapmock,dc=local
+dn: uid=developper3,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
@@ -71,7 +71,7 @@ uid: developper3
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
 # developper4
-dn: uid=developper4,dc=ldapmock,dc=local
+dn: uid=developper4,${LDAP_BASEDN}
 objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
@@ -83,15 +83,15 @@ mail: developper.four@ldapmock.local
 uid: developper4
 userPassword: {SSHA}MGX0D2nvU4lPPEz9W/jSzwZQq0eigxiH
 
-# groups organistation unit
-dn: ou=groups,dc=ldapmock,dc=local
+# groups organistational unit
+dn: ou=groups,${LDAP_BASEDN}
 objectClass: top
 objectClass: organizationalUnit
 description: Mock LDAP groups
 ou: groups
 
 # Admins group
-dn: cn=admin,ou=groups,dc=ldapmock,dc=local
+dn: cn=admin,ou=groups,${LDAP_BASEDN}
 objectclass: posixGroup
 objectclass: top
 cn: nx-admin
@@ -100,7 +100,7 @@ memberUID: adminuser1
 memberUID: adminuser2
 
 # Developper's group
-dn: cn=developper,ou=groups,dc=ldapmock,dc=local
+dn: cn=developper,ou=groups,${LDAP_BASEDN}
 objectclass: posixGroup
 objectclass: top
 cn: developper
