@@ -55,7 +55,7 @@ You can set the following environment variables in your container
 | BOOTSTRAP_DIR     | /bootstrap                    | Directory holding boostrap files where `config.ldif` and `data.ldif` reside         |
 
 Other variables are calculated from the above (will be overwritten if set)
-| variable           | default value                 q| usage                                     | calulation               |
+| variable           | default value                 | usage                                     | calulation               |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------|
 | LDAP_BASEDN        | dc=ldapmock,dc=local          | dynamic basedn replacement (templates...) | Infered from LDAP_DOMAIN |
 | LDAP_BINDDN        | cn=admin,dc=ldapmock,dc=local | admin binddn for slapadmin                | Infered from LDAP_BASEDN |
