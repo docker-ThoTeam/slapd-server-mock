@@ -6,7 +6,7 @@ This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit 
 By default, the server is initialized with the example domain `ldapmock.local` with set of posix users/groups.
 
 
-The starting point is based on the work from @rroemhild [docker-test-ldap](https://github.com/rroemhild/docker-test-openldap)
+The starting point is based on [docker-test-ldap](https://github.com/rroemhild/docker-test-openldap) by [@rroemhild](https://github.com/rroemhild)
 
 **As the title suggests, this is for testing only and you should not try to use this on any kind of production.** Slapd configuration
 is minimal and the container does not store any data in persistent volumes. The mock data is bootstrapped each time the container
