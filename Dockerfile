@@ -1,17 +1,18 @@
-FROM debian:stretch-slim
+FROM debian:bookworm-slim
 LABEL maintainter="Olivier Clavel <olivier.clavel@thoteam.com>"
 
 # Install slapd and requirements
-RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get \
-        install -y --no-install-recommends \
-            slapd \
-            ldap-utils \
-            openssl \
-            ca-certificates \
-            gettext-base \
-    && rm -rf /var/lib/apt/lists/* \
-    && mkdir /etc/ldap/ssl /bootstrap
+RUN \
+  echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
+  apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y --no-install-recommends \
+    slapd \
+    ldap-utils \
+    openssl \
+    ca-certificates \
+    gettext-base && \
+  mkdir /etc/ldap/ssl /bootstrap
 
 # ADD sh scripts
 COPY *.sh /
