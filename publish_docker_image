@@ -1,7 +1,11 @@
 #!/bin/bash
 
+set -e
+
 # Make sure we use buildkit
 export DOCKER_BUILDKIT=1
+
+docker buildx prune -a -f
 
 docker build --pull --no-cache -t thoteam/slapd-server-mock:latest .
 
