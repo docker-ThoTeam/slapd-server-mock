@@ -12,7 +12,7 @@ docker build --pull --no-cache -t thoteam/slapd-server-mock:latest .
 # !!! a password for DOCKERHUB_VAULT_ID must be set in keyring
 echo $(vault-keyring-client --vault-id ${DOCKERHUB_VAULT_ID}) | docker login -u ${DOCKERHUB_USER} --password-stdin
 
-docker push thoteam/molecule_apache_openjdk8:${tag}
+docker push thoteam/slapd-server-mock:latest
 
 # Logout from github
 docker logout
