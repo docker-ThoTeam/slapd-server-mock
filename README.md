@@ -1,12 +1,14 @@
 # OpenLDAP docker image with configurable mock data for testing
 
-![Docker Build Status](https://img.shields.io/docker/cloud/build/thoteam/slapd-server-mock.svg) ![Docker Stars](https://img.shields.io/docker/stars/thoteam/slapd-server-mock.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/thoteam/slapd-server-mock.svg)
+![Docker Stars](https://img.shields.io/docker/stars/thoteam/slapd-server-mock.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/thoteam/slapd-server-mock.svg)
 
 This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests.
 By default, the server is initialized with the example domain `ldapmock.local` with set of posix users/groups.
 
 
 The starting point is based on [docker-test-ldap](https://github.com/rroemhild/docker-test-openldap) by [@rroemhild](https://github.com/rroemhild)
+
+This image is not built automatically. The source is avaible on [the relevant git repository](https://github.com/docker-ThoTeam/slapd-server-mock)
 
 **As the title suggests, this is for testing only and you should not try to use this on any kind of production.** Slapd configuration
 is minimal and the container does not store any data in persistent volumes. The mock data is bootstrapped each time the container
