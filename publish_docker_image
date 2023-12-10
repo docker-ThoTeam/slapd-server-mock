@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Make sure we use buildkit
+export DOCKER_BUILDKIT=1
+
+docker build --pull --no-cache -t thoteam/slapd-server-mock:latest .
+
+# Make sure we are logged in
+# !!! DOCKERHUB_USER must be set in the environment
+# !!! DOCKERHUB_VAULT_ID must be set in the environment
+# !!! vault-keyring-client must be installed
+# !!! a password for DOCKERHUB_VAULT_ID must be set in keyring
+echo $(vault-keyring-client --vault-id ${DOCKERHUB_VAULT_ID}) | docker login -u ${DOCKERHUB_USER} --password-stdin
+
+docker push thoteam/molecule_apache_openjdk8:${tag}
+
+# Logout from github
+docker logout
