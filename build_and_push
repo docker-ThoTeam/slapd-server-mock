@@ -39,10 +39,6 @@ while getopts pnucbkh opt; do
   esac
 done
 
-echo
-echo -e "Tags to build:\n\t${build_tags[@]}"
-echo
-
 if [ -z ${no_cache+x} ]; then
   read -p "Use build cache? [y/n]: " -n 1 use_cache; echo;
   if [ "$use_cache" != "y" ]; then
