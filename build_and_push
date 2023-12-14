@@ -1,0 +1,80 @@
+#!/bin/bash
+set -e
+
+declare -a build_tags
+
+while getopts pnucbkh opt; do
+  case $opt in
+  p)
+    push=y
+    ;;
+  n)
+    push=n
+    ;;
+  c)
+    no_cache="--no-cache"
+    ;;
+  u)
+    no_cache=""
+    ;;
+  b)
+    pull="--pull"
+    ;;
+  k)
+    pull=""
+    ;;
+  h)
+    echo "usage: $0 <options> "
+    echo
+    echo "Options:"
+    echo -e "\t -h:\t\t this help message"
+    echo -e "\t -l:\t\t list known tags and exit"
+    echo -e "\t -u|-c:\t\t use cache for build / clear cache before building."
+    echo -e "\t -b|-k:\t\t attempt to pull newer image / do not pull image if it exists"
+    echo -e "\t -p|-n:\t\t push / don't push tags to dockerhub."
+    echo "All options (except -l and -h) are asked interactively if not provided"
+    echo
+    exit 0
+    ;;
+  esac
+done
+
+echo
+echo -e "Tags to build:\n\t${build_tags[@]}"
+echo
+
+if [ -z ${no_cache+x} ]; then
+  read -p "Use build cache? [y/n]: " -n 1 use_cache; echo;
+  if [ "$use_cache" != "y" ]; then
+    no_cache="--no-cache"
+  fi
+fi
+
+if [ -z ${pull+x} ]; then
+  read -p "Attempt base image pull? [y/n]: " -n 1 pull_base; echo;
+  if [ "$pull_base" == "y" ]; then
+    pull="--pull"
+  fi
+fi
+if [ -z ${push+x} ]; then
+  read -p "Push tags to dockerhub? [y/n]: " -n 1 push
+fi
+# Make sure we use buildkit
+export DOCKER_BUILDKIT=1
+
+# Build image
+docker build ${pull} ${no_cache} -t thoteam/slapd-serer-mock:latest .
+
+if [ "$push" == 'y' ]; then
+  # Make sure we are logged in
+  # !!! DOCKERHUB_USER must be set in the environment
+  # !!! DOCKERHUB_VAULT_ID must be set in the environment
+  # !!! vault-keyring-client must be installed
+  # !!! a password for DOCKERHUB_VAULT_ID must be set in keyring
+  echo $(vault-keyring-client --vault-id ${DOCKERHUB_VAULT_ID}) | docker login -u ${DOCKERHUB_USER} --password-stdin
+
+  docker push thoteam/slapd-serer-mock:latest
+
+  # Logout from github
+  docker logout
+fi
