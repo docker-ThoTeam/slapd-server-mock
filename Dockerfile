@@ -3,7 +3,7 @@ LABEL maintainter="Olivier Clavel <olivier.clavel@thoteam.com>"
 
 # Install slapd and requirements
 RUN \
-  echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
+  export DEBIAN_FRONTEND=noninteractive && \
   apt-get update && \
   apt-get upgrade -y && \
   apt-get install -y --no-install-recommends \
@@ -12,6 +12,8 @@ RUN \
     openssl \
     ca-certificates \
     gettext-base && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* && \
   mkdir /etc/ldap/ssl /bootstrap
 
 # ADD sh scripts
