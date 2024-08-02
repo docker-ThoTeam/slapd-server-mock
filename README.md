@@ -107,10 +107,10 @@ dc=ldapmock,dc=local
 └─── ou=people,dc=ldapmock,dc=local
 |    |    uid=adminuser1,ou=people,dc=ldapmock,dc=local
 |    |    uid=adminuser2,ou=people,dc=ldapmock,dc=local
-|    |    uid=developper1,ou=people,dc=ldapmock,dc=local
-|    |    uid=developper2,ou=people,dc=ldapmock,dc=local
-|    |    uid=developper3,ou=people,dc=ldapmock,dc=local
-|    |    uid=developper4,ou=people,dc=ldapmock,dc=local
+|    |    uid=developer1,ou=people,dc=ldapmock,dc=local
+|    |    uid=developer2,ou=people,dc=ldapmock,dc=local
+|    |    uid=developer3,ou=people,dc=ldapmock,dc=local
+|    |    uid=developer4,ou=people,dc=ldapmock,dc=local
 |
 └─── ou=groups,dc=ldapmock,dc=local
      |
@@ -119,8 +119,8 @@ dc=ldapmock,dc=local
      |    |    memberUID:adminuser2
      |
      └─── cn=admin,ou=groups,dc=ldapmock,dc=local
-          |    memberUID:developper1
-          |    memberUID:developper2
-          |    memberUID:developper3
-          |    memberUID:developper4
+          |    memberUID:developer1
+          |    memberUID:developer2
+          |    memberUID:developer3
+          |    memberUID:developer4
 ```
